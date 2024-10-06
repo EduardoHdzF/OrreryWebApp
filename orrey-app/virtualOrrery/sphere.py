@@ -5,7 +5,6 @@ import plotly.graph_objects as go
 
 def draw_sphere(size, clr, dist=0, name=" ", angle=0): 
     """
-
     Function to draw a sphere for the 3D layout using plotly.
     It's used for the 3D representation of the solar system celestial bodies.
     For the parameters like diameter or the distance from the Sun we used the 
@@ -39,7 +38,6 @@ def draw_sphere(size, clr, dist=0, name=" ", angle=0):
 
 def show_sphere(size, clr, dist=0,name= '', angle = 0):
     """
-    
     Auxiliar function for draw_shpere, its used to return a figure of a sphere
     ----------------------------------------------------------
     Parameters

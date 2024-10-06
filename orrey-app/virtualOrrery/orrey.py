@@ -64,9 +64,15 @@ class Orrey :
     
     def get_Orrey(self):
         """
-        Funtion that creates the 3d plot
+        Funtion that creates the 3d plot and scene of the orrery
 
-        
+        Parameters
+        ------------
+        self: self reference to the same self data object 
+
+        Returns
+        ------------
+        A plotly graph object scattered representing 3D solar system.
         """
         layout=go.Layout(title = 'Solar system Orrey', showlegend=False, margin=dict(l=0, r=0, t=0, b=0), 
                         
