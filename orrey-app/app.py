@@ -197,35 +197,35 @@ def server(input, output, session):
     def planet1():
         from pathlib import Path
         dir = Path(__file__).resolve().parent
-        img: ImgData = {"src": str(dir / "www/planet1.jpg"), "width": "180px"}
+        img: ImgData = {"src": str(dir / "www/planet1.png"), "width": "180px"}
         return img
     
     @render.image
     def planet2():
         from pathlib import Path
         dir = Path(__file__).resolve().parent
-        img: ImgData = {"src": str(dir / "www/planet2.jpg"), "width": "100px"}
+        img: ImgData = {"src": str(dir / "www/planet2.png"), "width": "100px"}
         return img
     
     @render.image
     def planet3():
         from pathlib import Path
         dir = Path(__file__).resolve().parent
-        img: ImgData = {"src": str(dir / "www/planet3.jpg"), "width": "100px"}
+        img: ImgData = {"src": str(dir / "www/planet3.jpg"), "width": "100px"} # planet3.jpg está bien
         return img
     
     @render.image
     def planet4():
         from pathlib import Path
         dir = Path(__file__).resolve().parent
-        img: ImgData = {"src": str(dir / "www/planet4.jpg"), "width": "100px"}
+        img: ImgData = {"src": str(dir / "www/planet4.png"), "width": "100px"}
         return img
     
     @render.image
     def planet5():
         from pathlib import Path
         dir = Path(__file__).resolve().parent
-        img: ImgData = {"src": str(dir / "www/planet5.jpg"), "width": "100px"}
+        img: ImgData = {"src": str(dir / "www/planet5.png"), "width": "100px"}
         return img
     
     @render.image
@@ -239,14 +239,14 @@ def server(input, output, session):
     def planet7():
         from pathlib import Path
         dir = Path(__file__).resolve().parent
-        img: ImgData = {"src": str(dir / "www/planet7.jpg"), "width": "100px"}
+        img: ImgData = {"src": str(dir / "www/planet7.png"), "width": "100px"}
         return img
     
     @render.image
     def planet8():
         from pathlib import Path
         dir = Path(__file__).resolve().parent
-        img: ImgData = {"src": str(dir / "www/planet8.jpg"), "width": "100px"}
+        img: ImgData = {"src": str(dir / "www/planet8.png"), "width": "100px"}
         return img
 
     
