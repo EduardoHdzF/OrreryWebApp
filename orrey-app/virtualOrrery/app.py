@@ -4,7 +4,7 @@ from shinywidgets import render_widget #Makes shiny compatible with widgets
 import plotly.express as px #plotly import
 
 ##own imports
-from virtualOrrery.orrey import Orrey
+from orrey import Orrey
 
 
 
