@@ -1,7 +1,7 @@
 import plotly.express as px 
 from shinywidgets import render_widget
-from orbit import show_orbit as so
-from sphere import show_sphere as ss
+from virtualOrrery.orbit import show_orbit as so
+from virtualOrrery.sphere import show_sphere as ss
 import plotly.graph_objects as go
 
 class Orrey :
