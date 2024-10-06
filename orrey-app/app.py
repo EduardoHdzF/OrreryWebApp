@@ -86,7 +86,7 @@ css_styles = """
     }
 
     .circular-button:hover {
-        transform: scale(3); /* Escalado suave */
+        transform: scale(2); /* Escalado suave */
         transition: transform 1s ease; /* Mantiene la suavidad al hacer hover */
         z-index: 999; /* Elevar el z-index cuando se hace hover para que esté encima de todo */
     }
