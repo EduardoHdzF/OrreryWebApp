@@ -1,6 +1,23 @@
 from shiny.types import ImgData
 from shiny import App, ui, reactive, render
 
+from shiny import App, ui, render
+import pandas as pd
+
+data = {
+    "Name":                         ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"],
+    "Diameter (km)":                [4879,      12.104,  12.756,   6792,   142.984,   120.536,  51.118,    49.528],
+    "Mass (10^{24}kg)":             [0.330,      4.87,    5.97,   0.642, 	1898,	   568,    	86.8,	    102],
+    "Distance from Sun (10^6 km)":  [57.9,      108.2,   149.6,  228.0,	    778.5, 	 1432.0,	2867.0,    4515.0]
+}
+
+df = pd.DataFrame(data)
+
+app_ui = ui.page_fluid(
+    ui.h2("Planets"),
+    ui.output_table("planet_table")
+)
+
 
 # CSS Styles
 css_styles = """
@@ -16,12 +33,12 @@ css_styles = """
     /* Hero Section Styles */
     .header {
         position: relative;
-        height: 500px; /* Altura fija del hero */
+        height: 500px;
         width: 100%;
         color: white;
         display: flex;
-        align-items: center;  /* Centrar verticalmente */
-        justify-content: center; /* Centrar horizontalmente */
+        align-items: center;
+        justify-content: center; 
         overflow: hidden;
     }
 
@@ -32,25 +49,31 @@ css_styles = """
         left: 0;
         width: 100%;
         height: 100%;
-        object-fit: cover; /* Asegurar que la imagen cubra todo */
+        object-fit: cover;
         background: linear-gradient(black, grey);
-        z-index: -1; /* La imagen queda detrás del texto */
+        z-index: -1; 
     }
 
-    /* Title Styles */
     .header-title {
         font-size: 5rem;
-        letter-spacing: 1rem; /* Espacio entre letras */
+        letter-spacing: 1rem;
         font-weight: bold;
         text-transform: uppercase;
-        z-index: 1; /* Colocar el título sobre la imagen */
+        z-index: 1;
     }
 
-    /* mejor poner header, body y footer como centered
+
     .centered {
         text-align: center;
     }
     */
+
+    /* Estilos para la tabla */
+    .table-container {
+        justify-content: center;
+        margin: 20px auto; /* Centrar la tabla y agregar margen */
+        width: 80%; /* Ajustar el ancho de la tabla */
+    }
 
     .button-container {
         display: flex; /* Flexbox to align buttons */
@@ -61,20 +84,20 @@ css_styles = """
 
 
     .circular-button {
-        border-radius: 50%; /* Para hacer un círculo */
+        border-radius: 50%; 
         border: 0;
         height: 100px;
-        width: 100px; /* Mantén el mismo ancho y alto */
-        margin: 5px; /* Espacio entre botones */
-        transition: transform 1s ease; /* Transición suave tanto al entrar como al salir del hover */
-        padding: 0; /* Eliminar el padding para que la imagen ocupe todo el botón */
+        width: 100px;
+        margin: 5px; 
+        transition: transform 1s ease;
+        padding: 0;
         display: flex;
         align-items: center;
-        justify-content: center; /* Centrar el contenido */
-        overflow: hidden; /* Asegurarse de que la imagen no se salga del círculo */
+        justify-content: center;
+        overflow: hidden;
         text-decoration: none;
-        position: relative; /* Agregar posición relativa para que z-index funcione */
-        z-index: 1; /* El valor inicial del z-index */
+        position: relative;
+        z-index: 1;
     }
 
     .circular-button img {
@@ -115,7 +138,7 @@ app_ui = ui.page_fluid(
     ui.div(
         ui.panel_title("", "ORRERY - EsnupiCoders"), 
         ui.output_image("orrery"), 
-        ui.h1("OVERRY", class_="header-title"),  # Title
+        ui.h1("OVERRY", class_="header-title"),
         class_="header"
     ),
 
@@ -126,7 +149,12 @@ app_ui = ui.page_fluid(
         ui.p("This is still the body."), 
         class_="centered"
     ),
+    
+    ui.h2("Planets"),
+    ui.output_table("planet_table"),
+
     ui.hr(),
+    
     # Planets buttons
     ui.div(
         ui.h5("Planets", class_="centered"),
@@ -169,10 +197,13 @@ app_ui = ui.page_fluid(
     )
 )
 
-# Server logic to handle button clicks and display modal
 def server(input, output, session):
 
-    # Define reactive modals for each button
+    @output
+    @render.table
+    def planet_table():
+        return df
+
     def show_modal(content, title):
         modal = ui.modal(
             ui.div(
@@ -180,7 +211,7 @@ def server(input, output, session):
                 ui.p(content),
             ),
             title=title,
-            easy_close=True,  # Enables clicking outside to close the modal
+            easy_close=True,
             fade=True
         )
         ui.modal_show(modal)
@@ -291,5 +322,4 @@ def server(input, output, session):
     def _():
         show_modal("This is the content for Modal 8.", "Modal 8")
 
-# Run app
 app = App(app_ui, server=server)
