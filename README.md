@@ -14,6 +14,7 @@
 	- Noriega Rodríguez Marcos Julián.
 
 Welcome to our submission for the 2024 NASA Space Apps Challenge! 
+Before trying our project please keep in mind it may take some time to load.
 
 ### [Click for the Live Demo](https://eduardohdzf.github.io/OrreryWebApp/)
 
