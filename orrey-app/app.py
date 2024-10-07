@@ -1,7 +1,11 @@
 from shiny.types import ImgData
 from shiny import App, ui, reactive, render
+from shinywidgets import render_widget,output_widget #Makes shiny compatible with widgets
+# import virtualOrrery.orrey
+from virtualOrrery.orrey import Orrey
+import plotly.express as px #plotly impor
 
-url_na = 'https://cneos.jpl.nasa.gov/ca/'
+
 url_planets = 'https://science.nasa.gov/solar-system/planet-sizes-and-locations-in-our-solar-system/'
 url_dwarf = 'https://science.nasa.gov/dwarf-planets/'
 url_neo = 'https://cneos.jpl.nasa.gov/about/neo_groups.html'
@@ -186,9 +190,9 @@ app_ui = ui.page_fluid(
 
     # Graph
     ui.div(
-        ui.h3("Welcome to our page"),
-        ui.p("Description of the graph."),     
-        ui.p("Here goes the graph :D."), 
+        ui.h3("Solar system Orrery"),
+        ui.p("Description of the graph."),
+        output_widget("orrey"),
         class_="centered"
     ),
 
@@ -299,9 +303,9 @@ app_ui = ui.page_fluid(
         ui.HTML(f'<a href="{url_neo}" target="_blank">Obtained from and Learn more about Near-Earth Objects and Asteroids</a>'),
         ui.p("\n"),
         ui.tags.a("",
-              href=url_na,
+              href=url_ea,
               target='_blank'),
-        ui.HTML(f'<a href="{url_na}" target="_blank">Obtained from and List of Near-Earth Asteroids</a>'),
+        ui.HTML(f'<a href="{url_ea}" target="_blank">Obtained from and List of Near-Earth Asteroids</a>'),
         ui.div(
             ui.row(
                 ui.input_action_button("asteroid_button_1", 
@@ -337,9 +341,9 @@ app_ui = ui.page_fluid(
         ui.HTML(f'<a href="{url_neo}" target="_blank">Obtained from and Learn more about Near-Earth Objects and Comets</a>'),
         ui.p("\n"),
         ui.tags.a("",
-              href=url_na,
+              href=url_ea,
               target='_blank'),
-        ui.HTML(f'<a href="{url_na}" target="_blank">Obtained from and List of Near-Earth Comets before 1900</a>'),
+        ui.HTML(f'<a href="{url_ea}" target="_blank">Obtained from and List of Near-Earth Comets before 1900</a>'),
         ui.div(
             ui.row(
                 ui.input_action_button("comet_button_1", 
@@ -889,6 +893,11 @@ def server(input, output, session):
     def _():
         show_modal("The asteroid 2024 TY has an average estimated diameter of 20.83 meters. "
                    "Currently, it is located around 0.01 AU from Earth,", "2024 TY")
+        
+    @render_widget
+    def orrey():
+        orrey =  Orrey() #Creates object orrey
+        return orrey.get_Orrey()
 
 # Run app
 app = App(app_ui, server=server)

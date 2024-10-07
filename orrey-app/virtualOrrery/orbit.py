@@ -1,6 +1,8 @@
 import math
 import numpy as np
+import plotly.express as px 
 import plotly.graph_objects as go
+import math
 from scipy.spatial.transform import Rotation as R
 
 
@@ -54,9 +56,8 @@ def orbits(distance, angle, eccentricity):
 
 def show_orbit(distance, angle, eccentricity):
     """
-    Auxiliary function to orbit.
-
-    Parameters
+    Auxiliary function to orbi
+     Parameters
     ----------
     distance: Distance from the sun to x
     angle: Orbital incliantion in degrees

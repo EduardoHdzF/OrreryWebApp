@@ -75,7 +75,6 @@ class Orrey :
         A plotly graph object scattered representing 3D solar system.
         """
         layout=go.Layout(title = 'Solar system Orrey', showlegend=False, margin=dict(l=0, r=0, t=0, b=0), 
-                        
                   scene = dict(xaxis=dict( 
                                           range=[-10000,10000], 
                                           showgrid=False,
