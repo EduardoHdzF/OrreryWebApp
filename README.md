@@ -13,9 +13,13 @@
 	- Mora Hernández Dulce Julieta.
 	- Noriega Rodríguez Marcos Julián.
 
-Welcome to our submission for the 2024 NASA Space Apps Challenge! We wanted our Near-Earth Objects WebApp to be interactive so we researched tools to make the process easier and discovered Shiny, which would allow us to develop the orrery and deploy the web app. We also use GitHub to collaborate.
+Welcome to our submission for the 2024 NASA Space Apps Challenge! 
 
-#### Business plan
+### [Click for the Live Demo](https://eduardohdzf.github.io/OrreryWebApp/)
+
+
+
+#### Objective 
 
 Our project presents a unique opportunity to innovate within the educational technology space, promoting knowledge through an engaging and interactive platform. By leveraging our programming skills and a passion for education, we aim to inspire curiosity about the universe.
 
